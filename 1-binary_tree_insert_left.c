@@ -8,13 +8,19 @@ binary_tree_t
 
 	if (!parent)
 	{
-	return (NULL);
+		return (NULL);
 	}
-	node = binary_tree_t(parent, value);
+	node = malloc(sizeof(binary_tree_t));
 	if (!node)
 	{
-	return NULL;
+		return NULL;
 	}
+	
+	node->n = value;
+	node->parent = parent;
+	node->left = NULL;
+	node->right = NULL; 
+	
 	if (parent->left != NULL)
 	{
 	parent->left->parent = node;
